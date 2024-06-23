@@ -1,70 +1,67 @@
-# Getting Started with Create React App
+# Cricket Performance Smart Contract
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+ 
 
-## Available Scripts
+This project implements a Solidity smart contract to manage cricket player performance statistics on the blockchain. It allows adding players and retrieving their runs scored and wickets taken.
 
-In the project directory, you can run:
+## Description
 
-### `npm start`
+Functionality
+1. addPlayer
+Description: Adds a new player with their name, runs scored, and wickets taken.
+Parameters:
+_name: Name of the player (string)
+_runsScored: Runs scored by the player (uint256)
+_wicketsTaken: Wickets taken by the player (uint256)
+2. getPlayer
+Description: Retrieves the details (name, runs scored, wickets taken) of a player based on their player ID.
+Parameters:
+_playerId: ID of the player whose details are to be retrieved (uint256)
+Returns: Tuple containing player's name, runs scored, and wickets taken.
+Storage
+Uses a mapping players to store player details keyed by playerId.
+playersCount keeps track of the total number of players added.
+React Frontend
+The React frontend provides a user-friendly interface to interact with the smart contract. It allows users to:
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Add new players by entering their name, runs scored, and wickets taken.
+View player details by entering the player ID.
+Technologies Used
+React: JavaScript library for building user interfaces.
+Web3.js: Library to interact with Ethereum smart contracts.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
 
-### `npm test`
+## Getting Started
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Installing
 
-### `npm run build`
+To download the code, you can visit the following file path:-(solidty code) (https://github.com/Sagarthakur18/ETH-AVAX_assesment_2/blob/main/CricketPerformance.sol)
+and frontend react code (https://github.com/Sagarthakur18/ETH-AVAX_assesment_2/blob/main/App.js.js)
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Executing program
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+To run this program, you can use Remix, an online Solidity IDE. To get started, go to the Remix website at (https://remix.ethereum.org/.)
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Once you are on the Remix website, create a new file by clicking on the "+" icon in the left-hand sidebar. Save the file with a .sol extension (e.g., Meta.sol). Copy and paste the following code into the file: contract MyToken {
+```
+ function addPlayer(string memory _name, uint256 _runsScored, uint256 _wicketsTaken) public {
+        playersCount++;
+        players[playersCount] = Player(playersCount, _name, _runsScored, _wicketsTaken);
+    }
 
-### `npm run eject`
+    function getPlayer(uint256 _playerId) public view returns (string memory, uint256, uint256) {
+        Player memory player = players[_playerId];
+        return (player.name, player.runsScored, player.wicketsTaken);
+    }}
+```
+and for react code you can simply run it in vs code or command prompt node js should be installed there 
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Authors
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+sagar thakur(sagarthakur8456@gmail.com)
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
 
-## Learn More
+## License
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+This project is licensed under the MIT License - see the LICENSE.md file for details
